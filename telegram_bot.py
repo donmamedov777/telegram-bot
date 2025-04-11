@@ -14,7 +14,7 @@ target_chats = [
 
 notify_group = '@notificationsqa'
 
-# Вставляем твой токен сюда
+# Вставляем токен
 bot_token = '7818798124:AAH5XJ8Ws_oCciNLZKuvzqr5ZOueDZcUq0g'
 
 client = TelegramClient(session_name, api_id, api_hash).start(bot_token=bot_token)
@@ -27,10 +27,10 @@ async def handler(event):
         chat_name = getattr(chat, 'title', 'Неизвестный чат')
         await client.send_message(
             notify_group,
-            f'🔔 Найдено ключевое слово в чате: {chat_name}
+            f"""🔔 Найдено ключевое слово в чате: {chat_name}
 
 💬 Сообщение:
-{event.raw_text}'
+{event.raw_text}"""
         )
 
 client.start()
